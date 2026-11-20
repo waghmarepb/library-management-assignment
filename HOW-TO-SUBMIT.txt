@@ -1,0 +1,46 @@
+HOW TO SEND YOUR CODE (when Gmail blocks .zip)
+==============================================
+
+Why public.zip was blocked
+--------------------------
+Gmail scans ZIP attachments. If the archive contains JavaScript (.js),
+shell scripts (.sh), or similar files, it often shows:
+"Blocked for security reasons!"
+
+Do NOT attach public.zip or a full project ZIP.
+
+RECOMMENDED — GitHub link
+-------------------------
+https://github.com/waghmarepb/library-management-assignment
+Put that link in the email body (branch: main). No attachment needed.
+
+BUILD EMAIL-SAFE FILES (on your PC)
+-----------------------------------
+From the project folder:
+
+  npm run bundle:email
+
+This creates:
+  library-submission-bundle.json   — attach THIS alone (usually works)
+  email-attach/                    — same code, but .js/.jsx renamed to *.txt
+
+OPTION 1 — Single JSON attachment
+  Attach: library-submission-bundle.json
+  Tell them: extract files from the "files" object or use your GitHub link.
+
+OPTION 2 — ZIP of email-attach only
+  Right-click email-attach -> Send to -> Compressed folder
+  Attach that ZIP (inside, scripts are .txt, not .js — less often blocked).
+  Include email-attach/README-FOR-RECIPIENT.txt for the reviewer.
+
+OPTION 3 — Google Drive / OneDrive
+  Upload the whole project (exclude node_modules), share link, paste in email.
+
+OPTION 4 — Multiple loose files (no zip)
+  Attach package.json, package-lock.json, index.html, and each file under src/
+  as separate attachments if Gmail allows multiple files.
+
+After they have the code:
+  npm install
+  npm run dev
+  npm test
